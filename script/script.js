@@ -1,130 +1,49 @@
+gsap.from("h1",{
 
-/* DARK MODE */
+y:-50,
+opacity:0,
+duration:1
 
-document
-.getElementById("mode")
-.onclick=function(){
-
-document.body
-.classList.toggle("light");
-
-};
+})
 
 
-
-/* LOADER */
-
-window.onload=function(){
-
-gsap.to(".loader",{
+gsap.from(".card",{
 
 opacity:0,
+y:50,
+stagger:.2
 
-duration:1,
-
-onComplete:function(){
-
-document
-.querySelector(".loader")
-.style.display="none";
-
-}
-
-});
-
-
-};
+})
 
 
 
-/* CURSOR */
+gsap.to(".react",{
 
-document
-.addEventListener("mousemove",e=>{
+width:"90%",
+delay:1
 
-document
-.querySelector(".cursor")
-.style.left=e.pageX+"px";
-
-document
-.querySelector(".cursor")
-.style.top=e.pageY+"px";
-
-});
+})
 
 
+gsap.to(".java",{
 
-/* GSAP */
+width:"85%",
+delay:1
 
-gsap.from(".hero h1",{
-
-y:100,
-
-opacity:0
-
-});
+})
 
 
-gsap.utils
-.toArray("section")
-.forEach(sec=>{
+gsap.to(".spring",{
 
-gsap.from(sec,{
+width:"80%",
+delay:1
 
-scrollTrigger:sec,
-
-y:100,
-
-opacity:0
-
-});
-
-});
+})
 
 
+gsap.to(".sql",{
 
-/* SKILLS */
+width:"75%",
+delay:1
 
-gsap.to(".f90",{
-
-scrollTrigger:"#skills",
-
-width:"90%"
-
-});
-
-
-gsap.to(".f85",{
-
-scrollTrigger:"#skills",
-
-width:"85%"
-
-});
-
-
-gsap.to(".f80",{
-
-scrollTrigger:"#skills",
-
-width:"80%"
-
-});
-
-
-
-/* PARTICLES */
-
-particlesJS("particles-js",{
-
-particles:{
-
-number:{value:80},
-
-size:{value:3},
-
-move:{speed:2}
-
-}
-
-});
+})
