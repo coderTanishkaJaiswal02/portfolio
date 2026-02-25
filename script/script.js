@@ -1,114 +1,200 @@
-$(document).ready(function() {
+$(function () {
 
-  //sticky header
-    $(window).scroll(function() {
-      if ($(this).scrollTop() > 1) {
-        $(".header-area").addClass("sticky");
-      } else {
-        $(".header-area").removeClass("sticky");
-      }
-  
-      // Update the active section in the header
-      updateActiveSection();
-    });
-  
-    $(".header ul li a").click(function(e) {
-      e.preventDefault(); 
-  
-      var target = $(this).attr("href");
-  
-      if ($(target).hasClass("active-section")) {
-        return; 
-      }
-  
-      if (target === "#home") {
-        $("html, body").animate(
-          {
-            scrollTop: 0 
-          },
-          500
-        );
-      } else {
-        var offset = $(target).offset().top - 40; 
-  
-        $("html, body").animate(
-          {
-            scrollTop: offset
-          },
-          500
-        );
-      }
-  
-      $(".header ul li a").removeClass("active");
-      $(this).addClass("active");
-    });
-  
+ /* =============================
+    STICKY HEADER + ACTIVE MENU
+ ==============================*/
 
-    //Initial content revealing js
-    ScrollReveal({
-      distance: "100px",
-      duration: 2000,
-      delay: 200
-    });
-  
-    ScrollReveal().reveal(".header a, .profile-photo, .about-content, .education", {
-      origin: "left"
-    });
-    ScrollReveal().reveal(".header ul, .profile-text, .about-skills, .internship", {
-      origin: "right"
-    });
-    ScrollReveal().reveal(".project-title, .contact-title", {
-      origin: "top"
-    });
-    ScrollReveal().reveal(".projects, .contact", {
-      origin: "bottom"
-    });
+ const header = $(".header-area");
+ const navLinks = $(".header ul li a");
+ const sections = $("section");
 
-  //contact form to excel sheet
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbzUSaaX3XmlE5m9YLOHOBrRuCh2Ohv49N9bs4bew7xPd1qlgpvXtnudDs5Xhp3jF-Fx/exec';
-  const form = document.forms['submitToGoogleSheet']
-  const msg = document.getElementById("msg")
 
-  form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-          .then(response => {
-              msg.innerHTML = "Message sent successfully"
-              setTimeout(function () {
-                  msg.innerHTML = ""
-              }, 5000)
-              form.reset()
-          })
-          .catch(error => console.error('Error!', error.message))
-  })
-    
-  });
-  
-  function updateActiveSection() {
-    var scrollPosition = $(window).scrollTop();
-  
-    // Checking if scroll position is at the top of the page
-    if (scrollPosition === 0) {
-      $(".header ul li a").removeClass("active");
-      $(".header ul li a[href='#home']").addClass("active");
-      return;
-    }
-  
-    // Iterate through each section and update the active class in the header
-    $("section").each(function() {
-      var target = $(this).attr("id");
-      var offset = $(this).offset().top;
-      var height = $(this).outerHeight();
-  
-      if (
-        scrollPosition >= offset - 40 &&
-        scrollPosition < offset + height - 40
-      ) {
-        $(".header ul li a").removeClass("active");
-        $(".header ul li a[href='#" + target + "']").addClass("active");
-      }
-    });
-  }
-  
+ $(window).on("scroll", function () {
+
+     let scroll = $(this).scrollTop();
+
+     // Sticky Header
+     header.toggleClass("sticky", scroll > 50);
+
+     updateActiveSection(scroll);
+
+ });
+
+
+
+ /* =============================
+     SMOOTH SCROLL
+ ==============================*/
+
+ navLinks.on("click", function (e) {
+
+     e.preventDefault();
+
+     let target = $(this).attr("href");
+
+     let position = target === "#home"
+         ? 0
+         : $(target).offset().top - 60;
+
+     $("html,body").animate({
+         scrollTop: position
+     }, 600);
+
+
+     navLinks.removeClass("active");
+     $(this).addClass("active");
+
+ });
+
+
+
+ /* =============================
+     SCROLL REVEAL
+ ==============================*/
+
+ const sr = ScrollReveal({
+
+     distance: "80px",
+
+     duration: 1200,
+
+     delay: 150,
+
+     reset: false
+
+ });
+
+
+ sr.reveal(".profile-photo,.about-content,.education", {
+
+     origin: "left"
+
+ });
+
+
+ sr.reveal(".profile-text,.about-skills,.internship", {
+
+     origin: "right"
+
+ });
+
+
+ sr.reveal(".project-title,.contact-title", {
+
+     origin: "top"
+
+ });
+
+
+ sr.reveal(".projects,.contact", {
+
+     origin: "bottom"
+
+ });
+
+
+
+ /* =============================
+     CONTACT FORM
+ ==============================*/
+
+
+ const scriptURL =
+ 'https://script.google.com/macros/s/AKfycbzUSaaX3XmlE5m9YLOHOBrRuCh2Ohv49N9bs4bew7xPd1qlgpvXtnudDs5Xhp3jF-Fx/exec';
+
+
+ const form = document.forms["submitToGoogleSheet"];
+
+ const msg = document.getElementById("msg");
+
+
+ if(form){
+
+ form.addEventListener("submit", e => {
+
+     e.preventDefault();
+
+
+     msg.innerHTML = "Sending...";
+
+
+     fetch(scriptURL, {
+
+         method: "POST",
+
+         body: new FormData(form)
+
+     })
+
+     .then(() => {
+
+         msg.innerHTML = "✅ Message Sent";
+
+
+         setTimeout(() => {
+
+             msg.innerHTML = "";
+
+         },3000);
+
+
+         form.reset();
+
+     })
+
+
+     .catch(() => {
+
+         msg.innerHTML="❌ Failed";
+
+     });
+
+
+ });
+
+ }
+
+
+});
+
+
+
+/* =============================
+ ACTIVE SECTION
+==============================*/
+
+
+function updateActiveSection(scroll){
+
+
+ let sections=$("section");
+
+
+ sections.each(function(){
+
+
+     let top=$(this).offset().top-80;
+
+     let height=$(this).outerHeight();
+
+     let id=$(this).attr("id");
+
+
+     if(scroll>=top && scroll<top+height){
+
+         $(".header ul li a")
+         .removeClass("active");
+
+
+         $(".header ul li a[href='#"+id+"']")
+         .addClass("active");
+
+     }
+
+
+ });
+
+
+}
 
 
