@@ -11,37 +11,120 @@ document.body
 };
 
 
-/* STICKY */
 
-window.onscroll=function(){
-
-document
-.querySelector(".header")
-.classList
-.toggle("sticky",
-window.scrollY>50);
-
-};
-
-
-
-/* ANIMATE SKILLS */
+/* LOADER */
 
 window.onload=function(){
 
-let fills=
+gsap.to(".loader",{
+
+opacity:0,
+
+duration:1,
+
+onComplete:function(){
+
 document
-.querySelectorAll(".fill");
+.querySelector(".loader")
+.style.display="none";
 
-fills.forEach(bar=>{
-
-bar.style.width=
-bar.classList
-.contains("f90")?"90%":
-bar.classList
-.contains("f85")?"85%":
-"80%";
+}
 
 });
 
+
 };
+
+
+
+/* CURSOR */
+
+document
+.addEventListener("mousemove",e=>{
+
+document
+.querySelector(".cursor")
+.style.left=e.pageX+"px";
+
+document
+.querySelector(".cursor")
+.style.top=e.pageY+"px";
+
+});
+
+
+
+/* GSAP */
+
+gsap.from(".hero h1",{
+
+y:100,
+
+opacity:0
+
+});
+
+
+gsap.utils
+.toArray("section")
+.forEach(sec=>{
+
+gsap.from(sec,{
+
+scrollTrigger:sec,
+
+y:100,
+
+opacity:0
+
+});
+
+});
+
+
+
+/* SKILLS */
+
+gsap.to(".f90",{
+
+scrollTrigger:"#skills",
+
+width:"90%"
+
+});
+
+
+gsap.to(".f85",{
+
+scrollTrigger:"#skills",
+
+width:"85%"
+
+});
+
+
+gsap.to(".f80",{
+
+scrollTrigger:"#skills",
+
+width:"80%"
+
+});
+
+
+
+/* PARTICLES */
+
+particlesJS("particles-js",{
+
+particles:{
+
+number:{value:80},
+
+size:{value:3},
+
+move:{speed:2}
+
+}
+
+});
