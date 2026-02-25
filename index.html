@@ -4,329 +4,50 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width">
 
-<title>Tanishka | Software Developer</title>
+<title>Tanishka Jaiswal | Full Stack Developer</title>
+
+<link rel="stylesheet" href="style.css">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
-rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins;
-}
-
-
-body{
-background:#0f172a;
-color:white;
-}
-
-
-/* NAVBAR */
-
-nav{
-
-display:flex;
-justify-content:space-between;
-padding:20px 10%;
-background:#020617;
-position:sticky;
-top:0;
-}
-
-
-.logo{
-
-font-size:22px;
-font-weight:600;
-
-color:#38bdf8;
-
-}
-
-
-nav ul{
-
-display:flex;
-list-style:none;
-gap:30px;
-
-}
-
-
-nav a{
-
-text-decoration:none;
-color:white;
-
-}
-
-
-
-/* HERO */
-
-.hero{
-
-height:90vh;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-text-align:center;
-
-}
-
-
-.hero h1{
-
-font-size:50px;
-
-}
-
-
-.hero span{
-
-color:#38bdf8;
-
-}
-
-
-.btn{
-
-margin-top:20px;
-
-display:inline-block;
-
-padding:12px 30px;
-
-background:#38bdf8;
-
-border-radius:30px;
-
-color:black;
-
-text-decoration:none;
-
-}
-
-
-/* ABOUT */
-
-section{
-
-padding:80px 10%;
-
-}
-
-
-.title{
-
-font-size:35px;
-
-margin-bottom:30px;
-
-}
-
-
-.about{
-
-display:flex;
-
-gap:40px;
-
-}
-
-
-.card{
-
-background:#1e293b;
-
-padding:20px;
-
-border-radius:20px;
-
-flex:1;
-
-}
-
-
-
-/* SKILLS */
-
-.skills{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-
-gap:20px;
-
-}
-
-
-.skill{
-
-background:#1e293b;
-
-padding:20px;
-
-border-radius:20px;
-
-text-align:center;
-
-}
-
-
-/* PROJECTS */
-
-.projects{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-gap:30px;
-
-}
-
-
-.project{
-
-background:#1e293b;
-
-padding:20px;
-
-border-radius:20px;
-
-transition:.3s;
-
-}
-
-
-.project:hover{
-
-transform:translateY(-10px);
-
-}
-
-
-
-/* CONTACT */
-
-input,textarea{
-
-width:100%;
-
-padding:12px;
-
-margin:10px 0;
-
-border-radius:10px;
-
-border:none;
-
-}
-
-
-
-button{
-
-background:#38bdf8;
-
-padding:12px;
-
-border:none;
-
-border-radius:20px;
-
-width:100%;
-
-}
-
-
-
-/* FOOTER */
-
-footer{
-
-text-align:center;
-
-padding:30px;
-
-background:#020617;
-
-}
-
-
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.about{
-
-flex-direction:column;
-
-}
-
-.hero h1{
-
-font-size:35px;
-
-}
-
-}
-
-
-</style>
-
 </head>
-
-
 
 <body>
 
 
-
 <!-- NAVBAR -->
 
-<nav>
+<header class="header">
 
 <div class="logo">
 
-Tanishka
+Tanishka Jaiswal
 
 </div>
 
 
-<ul>
+<nav>
 
-<li><a href="#">Home</a></li>
-
-<li><a href="#about">About</a></li>
-
-<li><a href="#skills">Skills</a></li>
-
-<li><a href="#projects">Projects</a></li>
-
-<li><a href="#contact">Contact</a></li>
-
-</ul>
-
+<a href="#">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#experience">Experience</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
 
 </nav>
 
+
+<button id="mode">
+
+🌙
+
+</button>
+
+</header>
 
 
 
@@ -334,30 +55,42 @@ Tanishka
 
 <section class="hero">
 
-<div>
 
 <h1>
 
 Hi I'm
 
-<span id="typing"></span>
+<span class="blue">
+
+Tanishka Jaiswal
+
+</span>
 
 </h1>
 
 
+<h2>
+
+Full Stack Developer
+
+</h2>
+
+
 <p>
 
-Software Developer | MCA Student
+Execution-driven Full Stack Developer with experience
+building SaaS platforms from concept to deployment.
 
 </p>
 
 
-<a class="btn">
-Hire Me
+<a href="resume.pdf"
+class="btn">
+
+Download Resume
+
 </a>
 
-
-</div>
 
 </section>
 
@@ -375,23 +108,18 @@ About Me
 </h2>
 
 
-<div class="about">
-
-
-<div class="card">
-
-<h3>
-
-Who I Am
-
-</h3>
+<div class="glass">
 
 
 <p>
 
-Final Year MCA Student passionate about coding.
+Full Stack Developer experienced in designing and
+developing scalable SaaS platforms.
 
-Experienced in Java and Web Development.
+Strong expertise in React, Java, and Spring Boot.
+
+Experience includes UI design, REST APIs,
+database architecture, and deployment.
 
 </p>
 
@@ -399,34 +127,96 @@ Experienced in Java and Web Development.
 </div>
 
 
-
-<div class="card">
-
-<h3>
-
-Details
-
-</h3>
+</section>
 
 
-<p>
 
-Name : Tanishka
 
-<br>
+<!-- SKILLS -->
 
-Country : India
+<section id="skills">
 
-<br>
 
-Email :
+<h2 class="title">
 
-tanishkaj290@gmail.com
+Technical Skills
 
-</p>
+</h2>
 
+
+
+<div class="glass">
+
+
+
+<div class="skill">
+
+React
+
+<div class="bar">
+
+<div class="fill f90"></div>
 
 </div>
+
+</div>
+
+
+
+<div class="skill">
+
+Java
+
+<div class="bar">
+
+<div class="fill f85"></div>
+
+</div>
+
+</div>
+
+
+
+<div class="skill">
+
+Spring Boot
+
+<div class="bar">
+
+<div class="fill f80"></div>
+
+</div>
+
+</div>
+
+
+
+<div class="skill">
+
+JavaScript
+
+<div class="bar">
+
+<div class="fill f85"></div>
+
+</div>
+
+</div>
+
+
+
+<div class="skill">
+
+MySQL
+
+<div class="bar">
+
+<div class="fill f80"></div>
+
+</div>
+
+</div>
+
 
 
 </div>
@@ -436,64 +226,88 @@ tanishkaj290@gmail.com
 
 
 
-<!-- SKILLS -->
+<!-- EXPERIENCE -->
 
+<section id="experience">
 
-<section id="skills">
 
 <h2 class="title">
 
-Skills
+Experience
 
 </h2>
 
 
-<div class="skills">
+
+<div class="glass">
 
 
-<div class="skill">
+<h3>
 
-Java
+Frontend Developer Intern
+
+</h3>
+
+
+<h4>
+
+51 Digital Media
+
+</h4>
+
+
+<p>
+
+Developed React-based SaaS dashboards
+using modular architecture.
+
+Implemented Progressive Web Apps improving
+mobile performance.
+
+Integrated REST APIs and optimized frontend speed.
+
+Worked on healthcare and digital identity platforms.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="glass">
+
+
+<h3>
+
+Full Stack Developer Intern
+
+</h3>
+
+
+<h4>
+
+Zoomcode Technology
+
+</h4>
+
+
+<p>
+
+Developed RESTful APIs using Spring Boot.
+
+Built full-stack features from frontend
+to backend.
+
+Optimized MySQL databases and queries.
+
+</p>
+
 
 </div>
 
 
-<div class="skill">
-
-HTML
-
-</div>
-
-
-<div class="skill">
-
-CSS
-
-</div>
-
-
-<div class="skill">
-
-JavaScript
-
-</div>
-
-
-<div class="skill">
-
-Spring Boot
-
-</div>
-
-
-<div class="skill">
-
-SQL
-
-</div>
-
-
-</div>
 
 </section>
 
@@ -504,6 +318,7 @@ SQL
 
 <section id="projects">
 
+
 <h2 class="title">
 
 Projects
@@ -511,22 +326,31 @@ Projects
 </h2>
 
 
+
 <div class="projects">
 
 
 
-<div class="project">
+<div class="glass">
+
 
 <h3>
 
-Hospital System
+ThinkerTheorist Blog
 
 </h3>
 
 
 <p>
 
-React + SpringBoot
+Developed a full-stack blogging platform
+using Java and SQL.
+
+Designed relational database schema.
+
+Implemented secure CRUD operations.
+
+Managed deployment and UI design.
 
 </p>
 
@@ -536,18 +360,24 @@ React + SpringBoot
 
 
 
-<div class="project">
+<div class="glass">
+
 
 <h3>
 
-Blog Website
+Doctor Management System
 
 </h3>
 
 
 <p>
 
-Java + SQL
+Developed SaaS platform dashboards
+using React.
+
+Implemented responsive workflows.
+
+Integrated backend APIs.
 
 </p>
 
@@ -556,18 +386,23 @@ Java + SQL
 
 
 
-<div class="project">
+
+<div class="glass">
+
 
 <h3>
 
-Portfolio
+Hello NFC Platform
 
 </h3>
 
 
 <p>
 
-HTML CSS JS
+Developed frontend interfaces integrated
+with NFC and Digital Identity APIs.
+
+Improved UI performance and usability.
 
 </p>
 
@@ -595,6 +430,10 @@ Contact
 </h2>
 
 
+
+<div class="glass">
+
+
 <input placeholder="Name">
 
 <input placeholder="Email">
@@ -606,10 +445,12 @@ Contact
 
 <button>
 
-Send
+Send Message
 
 </button>
 
+
+</div>
 
 
 </section>
@@ -619,37 +460,13 @@ Send
 
 <footer>
 
-© 2026 Tanishka Portfolio
+© 2026 Tanishka Jaiswal
 
 </footer>
 
 
 
-
-<script>
-
-let text="Tanishka 👩‍💻";
-
-let i=0;
-
-function typing(){
-
-if(i<text.length){
-
-document.getElementById("typing").innerHTML+=text.charAt(i);
-
-i++;
-
-setTimeout(typing,100);
-
-}
-
-}
-
-typing();
-
-</script>
-
+<script src="script.js"></script>
 
 
 </body>
